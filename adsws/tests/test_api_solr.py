@@ -10,6 +10,7 @@ class TestSolr(ApiTestCase):
     @httpretty.activate
     def test_sanitization(self):
         def request_callback(request, uri, headers):
+            print request.parsed_body
             if 'body' in request.parsed_body['fl'][0]:
                 return (500, headers, "The query was not sanitized properly")
             return (200, headers, "The {} response from {}".format(request.method, uri))
