@@ -43,7 +43,13 @@ def run_migrations_offline():
 
 
 def get_app_config(key):
-    from adsws.factory import create_app
+
+    try:
+        from adsws.factory import create_app
+    except ImportError:
+        import sys # back hack
+        sys.path.insert(0, '.')
+        from adsws.factory import create_app
     
     app = create_app('upgrade',
                      EXTENSIONS = ['adsws.ext.sqlalchemy',

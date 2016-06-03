@@ -5,6 +5,9 @@
 
     adsws wsgi module
 """
+from gevent import monkey
+monkey.patch_all()
+
 from werkzeug.serving import run_simple
 from werkzeug.wsgi import DispatcherMiddleware
 
@@ -38,4 +41,4 @@ application = DispatcherMiddleware(frontend.create_app(resources=resources), {
 })
 
 if __name__ == "__main__":
-    run_simple('0.0.0.0', 5000, application, use_reloader=False, use_debugger=True)
+    run_simple('0.0.0.0', 5000, application, use_reloader=False, use_debugger=False)

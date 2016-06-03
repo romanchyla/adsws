@@ -3,7 +3,7 @@ from flask.ext.restful import Resource
 import inspect
 import sys
 from stubdata import Stubdata
-
+import time
 
 class Resources(Resource):
     """Overview of available resources"""
@@ -121,6 +121,14 @@ class LOW_RATE_LIMIT(Resource):
     def get(self):
         return {'status':'OK'}
 
+class LARGE_RATE_LIMIT(Resource):
+    """Allow to run millions of requests"""
+    scopes = []
+    rate_limit = [2**31, 2**31]
+
+    def get(self, sleep=0.01):
+        time.sleep(sleep)
+        return {'status':'OK'}
 
 class RETAIN_HEADERS(Resource):
     """Return headers"""

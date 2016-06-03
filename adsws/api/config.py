@@ -6,7 +6,7 @@ EXTENSIONS = ['adsws.ext.menu',
 ]
 
 PACKAGES = ['adsws.modules.oauth2server', ]
-
+DEBUG = True
 CORS_HEADERS = [
     'Content-Type',
     'X-BB-Api-Client-Version',
@@ -32,9 +32,7 @@ RATELIMITER_BACKEND = 'flaskcacheredis'
 WEBSERVICES_PUBLISH_ENDPOINT = 'resources'
 WEBSERVICES = {
     # uri : deploy_path
-    'http://localhost:4000/': '/vis',
-    'adsws.solr.app': '/solr',
-    'adsws.graphics.app': '/graphics',
+    'adsws.tests.sample_microservice.app': '/test',
 }
 
 API_PROXYVIEW_HEADERS = {'Cache-Control': 'public, max-age=600'}

@@ -8,5 +8,5 @@ TESTING = False
 # then each application can get a different database
 # e.g. if you have 'sqlite:///adsws.sqlite' then the 
 # db will be saved at adsws/api/adsws.sqlite
-SQLALCHEMY_DATABASE_URI = 'sqlite://'
+SQLALCHEMY_DATABASE_URI = 'postgresql://adsws:adsws@localhost:5432/adsws'
 SITE_SECURE_URL = 'http://0.0.0.0:5000'
