@@ -280,6 +280,7 @@ class PersonalTokenView(Resource):
             try:
                 db.session.commit()
             except Exception, e:
+                db.session.rollback()
                 current_app.logger.error("Unknown DB error: {0}".format(e))
                 abort(503)
             current_app.logger.info(
