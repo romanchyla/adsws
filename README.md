@@ -15,6 +15,8 @@ Core API module for the NASA-ADS, handling:
  - rate limiting
 
 
+Test
+
 Installation
 ============
 
